@@ -26,7 +26,7 @@ public class User {
 
     private  String password;
 
-    private UserRole role;
+    private UserRole role = UserRole.ROLE_CUSTOMER;
 
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
@@ -37,4 +37,5 @@ public class User {
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)  // once user is deleted all saved addresses should be removed
     private List<Address> addresses = new ArrayList<>();
+
 }
